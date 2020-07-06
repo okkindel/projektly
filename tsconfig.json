@@ -16,7 +16,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@projektly/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@projektly/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@projektly/ui": ["libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
