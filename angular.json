@@ -98,33 +98,6 @@
         }
       }
     },
-    "projektly-e2e": {
-      "root": "apps/projektly-e2e",
-      "sourceRoot": "apps/projektly-e2e/src",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/projektly-e2e/cypress.json",
-            "tsConfig": "apps/projektly-e2e/tsconfig.e2e.json",
-            "devServerTarget": "projektly:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "projektly:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": ["apps/projektly-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/projektly-e2e/**/*"]
-          }
-        }
-      }
-    },
     "api": {
       "root": "apps/api",
       "sourceRoot": "apps/api/src",
@@ -333,33 +306,6 @@
           }
         }
       }
-    },
-    "webpage-e2e": {
-      "root": "apps/webpage-e2e",
-      "sourceRoot": "apps/webpage-e2e/src",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/webpage-e2e/cypress.json",
-            "tsConfig": "apps/webpage-e2e/tsconfig.e2e.json",
-            "devServerTarget": "webpage:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "webpage:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": ["apps/webpage-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/webpage-e2e/**/*"]
-          }
-        }
-      }
     }
   },
   "cli": {
@@ -367,8 +313,7 @@
   },
   "schematics": {
     "@nrwl/angular:application": {
-      "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
+      "unitTestRunner": "jest"
     },
     "@nrwl/angular:library": {
       "unitTestRunner": "jest"

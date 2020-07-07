@@ -17,17 +17,13 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": ["build", "lint", "test"]
       }
     }
   },
   "projects": {
     "projektly": {
       "tags": []
-    },
-    "projektly-e2e": {
-      "tags": [],
-      "implicitDependencies": ["projektly"]
     },
     "api": {
       "tags": []
@@ -40,10 +36,6 @@
     },
     "webpage": {
       "tags": []
-    },
-    "webpage-e2e": {
-      "tags": [],
-      "implicitDependencies": ["webpage"]
     }
   }
 }
