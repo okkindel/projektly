@@ -25,7 +25,9 @@
     "update": "ng update @nrwl/workspace",
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "scully": "scully --projectName=webpage --configFile=./apps/webpage/scully.config.ts",
+    "scully:serve": "scully serve --projectName=webpage --configFile=./apps/webpage/scully.config.ts"
   },
   "private": true,
   "dependencies": {
@@ -44,6 +46,9 @@
     "@ngrx/store": "^9.2.0",
     "@ngx-translate/core": "^13.0.0",
     "@nrwl/angular": "9.5.1",
+    "@scullyio/init": "0.0.28",
+    "@scullyio/ng-lib": "latest",
+    "@scullyio/scully": "latest",
     "mysql": "^2.18.1",
     "primeicons": "^4.0.0",
     "primeng": "^9.1.3",
