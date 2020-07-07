@@ -237,6 +237,129 @@
           "style": "scss"
         }
       }
+    },
+    "webpage": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/webpage",
+      "sourceRoot": "apps/webpage/src",
+      "prefix": "projektly",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/webpage",
+            "index": "apps/webpage/src/index.html",
+            "main": "apps/webpage/src/main.ts",
+            "polyfills": "apps/webpage/src/polyfills.ts",
+            "tsConfig": "apps/webpage/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/webpage/src/favicon.ico",
+              "apps/webpage/src/assets"
+            ],
+            "styles": ["apps/webpage/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/webpage/src/environments/environment.ts",
+                  "with": "apps/webpage/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "webpage:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "webpage:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "webpage:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/webpage/tsconfig.app.json",
+              "apps/webpage/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/webpage/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/webpage/jest.config.js",
+            "tsConfig": "apps/webpage/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/webpage/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "webpage-e2e": {
+      "root": "apps/webpage-e2e",
+      "sourceRoot": "apps/webpage-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/webpage-e2e/cypress.json",
+            "tsConfig": "apps/webpage-e2e/tsconfig.e2e.json",
+            "devServerTarget": "webpage:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "webpage:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/webpage-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/webpage-e2e/**/*"]
+          }
+        }
+      }
     }
   },
   "cli": {

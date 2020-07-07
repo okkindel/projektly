@@ -37,6 +37,13 @@
     },
     "ui": {
       "tags": []
+    },
+    "webpage": {
+      "tags": []
+    },
+    "webpage-e2e": {
+      "tags": [],
+      "implicitDependencies": ["webpage"]
     }
   }
 }
